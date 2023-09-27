@@ -1,3 +1,5 @@
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/cch230/Recommendation-Algorithm" style="display: block; object-fit: cover; border-radius: 1px; width: 100px; pointer-events: auto;">
+
 # *Recommendation-Algorithm* 
 
 ## Index 

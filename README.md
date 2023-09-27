@@ -187,7 +187,7 @@ spellcheck-ko에서 제공하는 한국어 단어를 분류하고 깨끗한 단�
    ```bash
    python process_smilar_*.py
 
- - [`relCategory.json`](SMLR_RECO/ByCTGY/near/relCategory.json): 카테고리 기반 추천된 관련 카테고리 정보를 JSON 형식으로 저장
+ - `relCategory.json`: 카테고리 기반 추천된 관련 카테고리 정보를 JSON 형식으로 저장
 - `keyword/*.dat`: 키워드 기반 추천된 관련 키워드 정보를 dat 형식으로 저장
 - `category/*.json`: 키워드 기반 추천된 관련 카테고리 정보를 json 형식으로 저장
 - 

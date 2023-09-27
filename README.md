@@ -23,12 +23,12 @@
 
 ---
 ## DataSet
-1. 유저의 명시적 데이터와 카테고리/모듈 별 행동 기록을 분석한 암시적 피드백을 활용한 [카테고리](DataSet/category_groupBy_user_20230825.csv)/[모듈](DataSet/module_groupBy_user_20230825.csv) 벡터 데이터
+1. 유저의 명시적 데이터와 카테고리/모듈 별 행동 기록을 분석한 암시적 피드백을 활용한 카테고리/모듈 벡터 데이터
    - 동적 벡터 가중치: 사용한 포인트, 더보기 요청, 검색, 30초 이상 체류, 저장/갱신 활성화, 좋아요 / 댓글
    - 정적 벡터 가중치: 모듈, 카테고리, 키워드, 연간 키워드
 2. spellcheck-ko에서 제공하는 [한국어기초사전](https://krdict.korean.go.kr/), [표준국어대사전](https://stdict.korean.go.kr/), [우리말샘](https://opendict.korean.go.kr/) 기반  [한국어 맞춤법 사전](https://github.com/spellcheck-ko/hunspell-dict-ko/releases/download/0.7.92/ko-aff-dic-0.7.92.zip)
 3. Facebook에서 제공하는 FastText의 300차원 벡터로 표현하여 단어의 의미적 관계를 반영한 한국어 Word2Vec 모델 [한국어 단어 벡터](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ko.300.vec.gz)
-4. 네이버 카테고리를 형태소 분석하여 나눈 [네이버 카테고리 말 뭉치](SMLR_RECO/data/output_oneElement.txt)
+4. 네이버 카테고리를 형태소 분석하여 나눈 네이버 카테고리 말 뭉치
 
 
 ---

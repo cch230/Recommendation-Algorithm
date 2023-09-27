@@ -9,7 +9,7 @@
 - [konlpy와 googletrans를 활용한 카테고리 형태소 분석 및 번역](#konlpy와-googletrans를-활용한-카테고리-형태소-분석-및-번역)
 - [Word2Vec 한국어 단어 임베딩 데이터베이스 구축](#word2vec-한국어-단어-임베딩-데이터베이스-구축)
 - [의미론적 단어유사도를 활용한 카테고리/키워드 추천](#의미론적-단어유사도를-활용한-카테고리키워드-추천)
-
+- [라이센스](#라이센스)
 
 ---
 ## Directory
@@ -193,3 +193,8 @@ spellcheck-ko에서 제공하는 한국어 단어를 분류하고 깨끗한 단�
 - `most_similar(mat: array, idx: int, k: int) -> Tuple[array, array]`: 특정 단어에 대해 주어진 행렬에서 가장 유사한 k개의 단어와 그 유사도를 반환
 - `dump_nearest(title: str, values: List[str], words: List[str], mat: array, k: int = 100) -> List[str]`: 단어의 유사도를 계산하고, 유사한 단어들을 파일로 저장, 이미 계산된 결과가 있는 경우 파일에서 로드하여 반환
 - `get_nearest(title: str, values: List[str], words: List[str], mat: array) -> List[str]`: 단어의 유사도를 계산하고, 이미 계산된 결과가 있는지 확인한 후 있으면 로드하여 반환하고, 없으면 다시 계산하여 반환
+
+
+---
+## 라이선스
+이 프로젝트는 GPL-3.0 라이선스를 따르며, 자세한 내용은 [LICENSE](blob/main/LICENSE) 파일을 참조하세요.

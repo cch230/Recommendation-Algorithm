@@ -3,7 +3,7 @@
 # *Recommendation-Algorithm* 
 ![image](img/algorithm_img.png)
 
-## [=> View English Introduction](#_Index)
+## View English Introduction
  - [Click to read English introduction.](#_Index)
 
 

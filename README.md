@@ -219,7 +219,7 @@ spellcheck-ko에서 제공하는 한국어 단어를 분류하고 깨끗한 단�
 - [Word Filtering using BERT for Korean Text Classification](#Word-Filtering-using-BERT-for-Korean-Text-Classification)
 - [Category Morphological Analysis and Translation using konlpy and googletrans](#Category-Morphological-Analysis-and-Translation-using-konlpy-and-googletrans)
 - [Building a Word2Vec Korean Word Embedding Database](#Building-a-Word2Vec-Korean-Word-Embedding-Database)
-- [Category/Keyword Recommendation using Semantic Word Similarity](#Category/Keyword-Recommendation-using-Semantic-Word-Similarity)
+- [Category/Keyword Recommendation using Semantic Word Similarity](#categorykeyword-recommendation-using-semantic-word-similarity)
 - [License](#_License)
 
 ---

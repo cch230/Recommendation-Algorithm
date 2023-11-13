@@ -209,7 +209,9 @@ spellcheck-ko에서 제공하는 한국어 단어를 분류하고 깨끗한 단�
 이 프로젝트는 GPL-3.0 라이선스를 따르며, 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 
+---
 
+## View English Introduction
 
 ## _Index 
 - [Directory](#_Directory)

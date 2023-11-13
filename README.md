@@ -3,6 +3,11 @@
 # *Recommendation-Algorithm* 
 ![image](img/algorithm_img.png)
 
+## [=> View English Introduction](#_Index)
+ - [Click to read English introduction.](#_Index)
+
+
+---
 ## Index 
 - [Directory](#Directory)
 - [DataSet](#DataSet)
@@ -202,3 +207,202 @@ spellcheck-ko에서 제공하는 한국어 단어를 분류하고 깨끗한 단�
 ---
 ## 라이선스
 이 프로젝트는 GPL-3.0 라이선스를 따르며, 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+
+
+
+## _Index 
+- [Directory](#_Directory)
+- [DataSet](#_DataSet)
+- [Optimizing Vector Similarity using the Annoy Library](#Optimizing-Vector-Similarity-using-the-Annoy-Library)
+- [Visualizing Vector Data with t-SNE](#Visualizing-Vector-Data-with-t-SNE)
+- [Word Filtering using BERT for Korean Text Classification](#Word-Filtering-using-BERT-for-Korean-Text-Classification)
+- [Category Morphological Analysis and Translation using konlpy and googletrans](#Category-Morphological-Analysis-and-Translation-using-konlpy-and-googletrans)
+- [Building a Word2Vec Korean Word Embedding Database](#Building-a-Word2Vec-Korean-Word-Embedding-Database)
+- [Category/Keyword Recommendation using Semantic Word Similarity](#Category/Keyword-Recommendation-using-Semantic-Word-Similarity)
+- [License](#_License)
+
+---
+## _Directory
+- [`USER_CTGY`](USER_CTGY): User-based Collaborative Filtering for Category Recommendation
+- [`USER_MODL`](USER_MODL): Item-based Collaborative Filtering for Module-specific Feature Recommendation
+- [`SMLR_RECO`](SMLR_RECO): Semantic Keyword and Category Recommendation Algorithm using Morphological Analysis and Tagging Libraries
+  1. [`ByCTGY`](SMLR_RECO/ByCTGY): Category-based Related Category Recommendation Algorithm
+  2. [`ByKYWD`](SMLR_RECO/ByKYWD): Keyword-based Related Category and Keyword Recommendation Algorithm
+  
+
+---
+## _DataSet
+1. Analyzing explicit user data and implicit feedback through category/module behavior records to create category/module vector data
+   - Dynamic Vector Weights: Points used, more requests, searches, stays longer than 30 seconds, activate/save updates, likes/comments
+   - Static Vector Weights: Module, category, keyword, annual keyword
+2. [Korean Basic Dictionary](https://krdict.korean.go.kr/), [Standard Korean Dictionary](https://stdict.korean.go.kr/), [Woori-mal-saem](https://opendict.korean.go.kr/) based [Korean Spelling Dictionary](https://github.com/spellcheck-ko/hunspell-dict-ko/releases/download/0.7.92/ko-aff-dic-0.7.92.zip) provided by spellcheck-ko
+3. Korean Word2Vec Model [Korean Word Vectors](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.ko.300.vec.gz) represented in 300 dimensions provided by Facebook
+4. Naver categories divided and analyzed by morphological analysis
+
+---
+## Optimizing Vector Similarity using the Annoy Library
+Optimizing vector similarity using the [`Annoy`](https://github.com/spotify/annoy) library and [`Bayesian Optimization`](https://github.com/bayesian-optimization/BayesianOptimization).
+
+### Key Technologies and Libraries Used
+- **Annoy Library:** Efficient library for calculating and searching vector similarity
+- **Bayesian Optimization:** Efficient algorithm for optimizing objective functions
+- **pandas:** Library for data manipulation and calculation
+- **numpy:** Library for handling multi-dimensional arrays
+- **matplotlib:** Library for data visualization
+
+### Usage
+1. **Install Dependencies:**
+   ```bash
+   pip install annoy pandas numpy scikit-learn bayesian-optimization matplotlib
+
+2. **Run the Code:**
+   ```bash
+   python *_optimizeAnnModel.py
+Run the above command to perform vector similarity optimization using the Annoy library.
+
+### Explanation of Python Code File (*_similarity_optimization.py)
+- `evaluate_n_trees(n_trees)`: Function to optimize the accuracy of the Annoy index, calculates vector similarity for a given number of trees, and returns the average distance of the nearest neighbors
+- `BayesianOptimization`: Initializes and configures the text classification pipeline, uses the BERT model to perform classification on the input text, and returns the results
+
+---  
+## Visualizing Vector Data with t-SNE 
+Using scikit-learn's [`t-SNE`](https://github.com/scikit-learn/scikit-learn/tree/main) algorithm to visualize vector data.
+
+### Key Technologies and Libraries Used
+- **t-SNE:** Algorithm used to visualize high-dimensional data by reducing it to lower dimensions while preserving the structure
+- **matplotlib:** Data visualization library
+- **scikit-learn:** Library for implementing machine learning models
+- **pandas:** Library for data manipulation and calculation
+- **numpy:** Library for handling multi-dimensional arrays
+
+### Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install scikit-learn matplotlib pandas numpy
+2. **Run the Code:**
+   ```bash 
+   python visualize_vectors.py
+Results in 2D and 3D t-SNE visualizations are generated as images named TSNE_2D.png and TSNE_3D.png.
+
+--- 
+## Word Filtering using BERT for Korean Text Classification
+Using the BERT pre-trained language model for natural language processing (NLP) tasks to filter clean words from text.
+
+### Key Technologies and Libraries Used
+- **BERT:** Pre-trained language model based on the bidirectional transformer model, using the [`kor_unsmile`](https://github.com/smilegate-ai/korean_unsmile_dataset) model provided by Smilegate-ai
+- **Hugging Face Transformers:** Library providing various pre-trained models for different languages, loads the model and performs text classification using BERT
+
+### Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install transformers tqdm
+
+2. **Download Pre-trained BERT Model and Tokenizer:**
+    ```python
+    from transformers import BertForSequenceClassification, AutoTokenizer
+    
+    model_name = 'smilegate-ai/kor_unsmile'
+    model = BertForSequenceClassification.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+3. **Perform Word Filtering:**
+    ```bash
+   python filter_words.py
+Categorizes Korean words provided by spellcheck-ko, extracts clean words, and saves the results in the data/ko_filtered.txt file.
+
+### Explanation of Python Code File (filter_words.py)
+ - `get_predicated_label(output_labels, min_score)`: Function to return only labels from the BERT model's output that have a score greater than or equal to the specified minimum score
+
+- `TextClassificationPipeline`: Initializes and configures the text classification pipeline, uses the BERT model to perform classification on the input text, and returns the results
+
+---
+## Category Morphological Analysis and Translation using konlpy and googletrans 
+Utilizing various tagging libraries from [`KoNLPy`](https://github.com/konlpy/konlpy) for Korean morphological analysis to extract meaningful words from categories. Translates extracted words using [`googletrans`](https://github.com/ssut/py-googletrans), then normalizes them to obtain new similar words.
+
+### Key Technologies and Libraries Used
+- **konlpy:** Library for Korean morphological analysis, using Okt, Hannanum, Kkma, and Komoran for morphological analysis
+- **googletrans:** Library using the Google Translate API for word translation
+- **re:** Library for regular expressions used to filter words
+
+### Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install konlpy googletrans
+
+2. **Perform Category Morphological Analysis and Translation:**
+   ```bash
+   python category_corpus.py
+Extracts new similar words from categories, saves the results in output.json and output_oneElement.txt.
+
+### Explanation of Python Code File (category_corpus.py)
+- `tokenize_and_join(input_file: str) -> Tuple[List[int], List[str]]`: Reads each line from the input file, performs morphological analysis and translation to extract meaningful words, and saves them to a file
+
+
+ --- 
+## Building a Word2Vec Korean Word Embedding Database
+Extracting word vectors using the Korean Word2Vec embedding model and saving them.
+
+### Key Technologies and Libraries Used
+
+- **Word2Vec:** Technique for learning distributed representations of words, using Facebook's Word2Vec model to extract and use word vectors
+- **SQLite:** Lightweight database management system, used to store words and their corresponding vectors
+- **unicodedata:** Library providing a database for Unicode characters
+- **pickle:** Library for serializing and deserializing Python objects
+- **numpy:** Library for handling multi-dimensional arrays
+
+### Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install numpy tqdm
+
+2. **Build Korean Word2Vec Database:**
+   ```bash
+   python process_vecs_*.py
+Extracts word vectors from the Korean Word2Vec model and saves them in *_guesses_ko.db and *_nearest_ko.dat.
+
+### Explanation of Python Code File (process_vecs_*.py)
+- `is_hangul(text) -> bool`: Function to check if the given text is in Hangul (Korean)
+- `load_dic(path: str) -> Set[str]`: Function to read the dictionary file from the specified path and return it as a set, normalizing Korean words included in the dictionary
+- `blocks(files, size=65536)`: Generator function to divide a file into blocks
+- `count_lines(filepath)`: Function to count the total number of lines in a given file
+- Extracts word vectors from the Word2Vec model and stores them in the database
+
+---
+## Category/Keyword Recommendation using Semantic Word Similarity
+Using stored word vectors to measure similarity between words, find similar words for a specific word, and recommend categories based on those words.
+
+### Key Technologies and Libraries Used
+- **numpy:** Library for handling multi-dimensional arrays
+- **pickle:** Library for serializing and deserializing Python objects
+- **pymysql:** Library for connecting to and interacting with MySQL databases
+
+### Usage
+
+1. **Install Dependencies:**
+   ```bash
+   pip install pymysql, numpy
+
+2. **Perform Keyword-based Category/Keyword Recommendation, Category-based Category Recommendation:**
+   ```bash
+   python process_smilar_*.py
+- `relCategory.json`: JSON file storing information about recommended related categories based on category recommendations
+- `keyword/*.dat`: dat files storing information about related keywords recommended based on keyword recommendations
+- `category/*.json`: JSON files storing information about related categories recommended based on keyword recommendations
+
+### Explanation of Python Code File (process_smilar_*.py) - Continued
+
+- `get_word_vector(word: str, model: Word2Vec) -> Optional[array]`: Function to retrieve the vector representation of a given word from the Word2Vec model
+- `recommend_by_category(category: str, k: int = 5) -> List[str]`: Recommends related categories based on the semantic similarity of words within the given category
+- `recommend_by_keyword(keyword: str, k: int = 5) -> List[str]`: Recommends related keywords based on the semantic similarity of words within the given keyword
+- `dump_json(data: Any, filepath: str)`: Serializes the given data to a JSON file
+- `load_json(filepath: str) -> Any`: Deserializes the data from a JSON file
+
+---
+
+##_License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

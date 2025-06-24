@@ -1,11 +1,24 @@
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/cch230/Recommendation-Algorithm&amp;&amp;count_bg=%23383333&amp;title_bg=%23555555&amp;icon=&amp;icon_color=%23E7E7E7" style="display: block; object-fit: cover; border-radius: 1px; width: 100px; pointer-events: auto;">
-
 # *Recommendation-Algorithm* 
 ![image](img/algorithm_img.png)
 
 ## View English Introduction
  - [Click to read English introduction.](#_Index)
 
+## 🙏 후원 안내 (Support & Sponsor)
+
+이 프로젝트가 도움이 되었다면, 개발 지속과 유지보수를 위해 후원을 부탁드립니다!  
+여러분의 작은 응원이 오픈소스 발전에 큰 힘이 됩니다.
+
+- [GitHub Sponsors로 후원하기](https://github.com/sponsors/여러분의_아이디)
+- 또는 커피 한 잔을 보내주세요! ☕
+
+If you find this project useful, please consider supporting it!  
+Your sponsorship helps keep this project alive and motivates further development.
+
+- [Sponsor via GitHub Sponsors](https://github.com/sponsors/your_id)
+- Or just buy me a coffee! ☕
+
+감사합니다! Thank you!
 
 ---
 ## Index 
